@@ -2,6 +2,3 @@
 
 [start]
 cmd = "gunicorn app:app"
-
-[build]
-env = ["LIBGL_ALWAYS_INDIRECT=1"]
