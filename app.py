@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_socketio import SocketIO
+from flask_cors import CORS
 from PIL import Image
 import base64
 from io import BytesIO
@@ -7,6 +8,7 @@ from ultralytics import YOLO
 
 # Inisialisasi Flask dan Socket.IO
 app = Flask(__name__)
+CORS(app) 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Load model YOLO
