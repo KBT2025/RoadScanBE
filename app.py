@@ -19,7 +19,7 @@ def handle_frame(image_data):
         img_bytes = base64.b64decode(image_data.split(",")[1])
         img = Image.open(BytesIO(img_bytes))
 
-        results = model.predict(img)
+        results = model.predict(img, conf=0.5)
         boxes = results[0].boxes.data.cpu().numpy()
 
         data = [
@@ -36,6 +36,10 @@ def handle_frame(image_data):
         socketio.emit("bbox", data)
     except Exception as e:
         print(f"Error processing frame: {e}")
+        
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
 
 if __name__ == "__main__":
     socketio.run(app, host="0.0.0.0", port=5000, debug=True)
