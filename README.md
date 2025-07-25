@@ -28,3 +28,8 @@ atau
 ```
 python app.py
 ```
+
+Contributor:
+Dionisius Reinaldo
+Theofilus Dewa
+Mario Anugraha
